@@ -1,8 +1,8 @@
 # ProgramacionWeb
-Talleres y Proyectos
-Programación en la Web
-Modulo 3
-Pontificia Universidad Javeriana
-Bogotá - Colombia
-2020-1
-Juan Sebastián Prado Valero
+Talleres y Proyectos\n
+Programación en la Web\n
+Modulo 3\n
+Pontificia Universidad Javeriana\n
+Bogotá - Colombia\n
+2020-1\n
+Juan Sebastián Prado Valero\n
