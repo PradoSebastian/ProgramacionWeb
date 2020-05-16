@@ -33,20 +33,44 @@ Antes de mostar esta página se debió ejecutar lo siguiente
                 echo $str_pagina;
 
                 crear_imagen();
-                echo "<img src=subidos/imagen.png?".date("U").">";
-                echo "</br>".date(DATE_RFC2822)."</br>";
+                echo "<br>Imagen Aleatoria:<br><img src=subidos/imagen.png?".date("U").">";
+                date_default_timezone_set('America/Bogota');
+                echo "<br><br>Fecha de hoy: ".date(DATE_RFC850)."<br>";
 
-                function  crear_imagen(){
-                        $im = imagecreate(200, 200) or die("Error en la creacion de imagenes");
-                        $color_fondo = imagecolorallocate($im, 255, 255, 0);   // amarillo
+                function  crear_imagen()
+                {    
+                    $alto = rand(200,300);
+                    $ancho = rand(200,300);
+                    $im = imagecreate($ancho, $alto) or die("Error en la creacion de imagenes");
+                    $color_fondo = imagecolorallocate($im, rand(0,255), rand(0,255), rand(0,255));
 
-                        $rojo = imagecolorallocate($im, 255, 0, 0);                  // rojo
-                        $azul = imagecolorallocate($im, 0, 0, 255);                 // azul
-                        imagerectangle ($im,   5,  10, 195, 50, $rojo); //rectangulo (borde)
-                        imagefilledrectangle ($im,   5,  100, 195, 140, $azul); //rectangulo (lleno)
+                    $color1 = imagecolorallocate($im, rand(0,255), rand(0,255), rand(0,255));                  
+                    $color2 = imagecolorallocate($im, rand(0,255), rand(0,255), rand(0,255));
 
-                        imagepng($im,"subidos/imagen.png");
-                        imagedestroy($im);
+                    for ($i=0; $i < rand(1,5) ; $i++) 
+                    { 
+                        $color1 = imagecolorallocate($im, rand(0,255), rand(0,255), rand(0,255));                  
+                        $color2 = imagecolorallocate($im, rand(0,255), rand(0,255), rand(0,255));
+
+                        $x1 = rand(0, $ancho*0.7);
+                        $y1 = rand(0, $alto*0.7);
+
+                        $x2 = rand($x1, $ancho);
+                        $y2 = rand($y1, $alto);
+
+                        imagefilledrectangle ($im,   $x1,  $y1, $x2, $y2, $color2); //rectangulo (lleno)
+
+                        $x1 = rand(0, $ancho*0.7);
+                        $y1 = rand(0, $alto*0.7);
+
+                        $x2 = rand($x1, $ancho);
+                        $y2 = rand($y1, $alto);
+                        
+                        imagerectangle ($im,   $x1,  $y1, $x2, $y2, $color1); //rectangulo (borde)
+                    }
+
+                    imagepng($im,"subidos/imagen.png");
+                    imagedestroy($im);
                 }
 
             ?>

@@ -48,8 +48,36 @@ Antes de mostar esta página se debió ejecutar lo siguiente
             //Variables en archivo config
             $con = mysqli_connect(HOST_DB,USUARIO_DB,USUARIO_PASS,NOMBRE_DB);
 
+            //FUNCIONES PARA REALIZAR FILTRO
+            /* function cambiarOrdenC($orden)
+            {
+                if($orden == "C-Menor-Mayor")
+                {
+                    $mensaje = "C-Mayor-Menor";
+                }
+                else
+                {
+                    $mensaje = "C-Menor-Mayor";
+                }
+                header("Location: verPersonas.php?m=$mensaje");
+            }
+
+            function cambiarOrdenN($orden)
+            {
+                if($orden == "N-Menor-Mayor")
+                {
+                    $mensaje = "N-Mayor-Menor";
+                }
+                else
+                {
+                    $mensaje = "N-Menor-Mayor";
+                }
+                header("Location: verPersonas.php?m=$mensaje");
+            } */
+
             $mensaje = "";
-            if($_GET != null)
+
+            if(isset($_GET['m']))
             {
                 $mensaje = $_GET["m"];
                 if($mensaje == "C-Mayor-Menor")
@@ -89,8 +117,8 @@ Antes de mostar esta página se debió ejecutar lo siguiente
                     <thead>
                         <tr>
                             <th scope="col">PID</th>
-                            <th scope="col"><a onclick="cambiarOrdenC(<?php echo "'".$mensaje."'"; ?>)">Cédula</a></th>
-                            <th scope="col"><a onclick="cambiarOrdenN(<?php echo "'".$mensaje."'"; ?>)">Nombre</a></th>
+                            <th scope="col"><a onclick="cambiarOrdenC(<?php echo "'$mensaje'"; ?>)">Cédula</a></th>
+                            <th scope="col"><a onclick="cambiarOrdenN(<?php echo "'$mensaje'"; ?>)">Nombre</a></th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Edad</th>
