@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Antes de mostar esta página se debió ejecutar lo siguiente 
+1. crearDb.php
+2. crearTabla.php
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestor Tabla Personas</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container" style="border-radius: 30px;border: solid;padding: 30px;margin-top: 3%;">
+            <div class="container">
+                <h2>Bienvenido al Gestor de Archivos </h2>
+            </div>
+            <form action="archivo_subir.php" method="post"
+            enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="arch">Subir Archivo</label>
+                    <input type="file" class="form-control-file" id="arch" name="arch" required>
+                    <div class="invalid-feedback">Selecciona un archivo</div>
+                </div>
+                <input class="btn btn-primary" type="submit" name="submit" value="Enviar">
+                <a href="../index.html"><button type="button" class="btn btn-primary">Volver</button></a>
+            </form>
+        </div>
+
+    </body>
+</html>
